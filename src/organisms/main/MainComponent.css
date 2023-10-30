@@ -1,0 +1,99 @@
+.main-container {
+    padding-top: 135px;
+    margin-left: 405px;
+    height: 100vh;
+    background-color: #eeeeee;
+}
+
+.sorting-section {
+    padding-left: 15px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.products-section {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 10px;
+}
+
+.product-container {
+    height: 260px;
+    width: 180px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.product-image-container{
+    width:100%;
+    height:140px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.add-to-cart {
+    background-color: rgb(232, 247, 236);
+    padding: 8px 20px;
+    border : 1px solid green;
+    color: green;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 70px;
+    height: 34px;
+}
+
+.quantity-container {
+    display: flex;
+    width: 68px;
+    height: 32px;
+    justify-content: space-around;
+    border : 1px solid green;
+    align-items: center;
+    color: rgb(232, 247, 236);
+    background-color: green;
+    border-radius: 5px;
+}
+
+.quantity-btn {
+    all: unset;
+}
+
+.product-title {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.price-quantity-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px;
+    align-items: center;
+}
+
+.product-in-kilo {
+    font-size: small;
+    opacity: 0.5;
+    padding: 20px 15px;
+    font-size: small;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.sort-dropdown {
+    padding-right:50px;
+}
+
+.sort-label {
+    font-size: small;
+    opacity: 0.6;
+    padding-right: 10px;
+}

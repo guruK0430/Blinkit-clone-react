@@ -1,0 +1,50 @@
+.cart-section {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 450px;
+    width: 700px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+.cart-product {
+    height: 100px;
+    padding:30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-img-container {
+    width: 80px;
+    border: 1px solid rgb(231, 231, 231);
+    margin-right: 20px;
+}
+
+.cart-img {
+    width: 100%;
+}
+
+.cart-left-section {
+    display: flex;
+    height: 100%;
+}
+
+.cart-title, .cart-kilo, .cart-price {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.cart-kilo {
+    font-size: small;
+    opacity: 0.5;
+}
+
+.cart-total-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+}
