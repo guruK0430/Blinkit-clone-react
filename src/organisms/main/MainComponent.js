@@ -2,7 +2,7 @@ import React from 'react'
 import './MainComponent.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../cart/cartredux/CartAction';
-import { setAllProducts, setSelectedSubCategory} from './mainredux/ProductsAction'
+import { setAllProducts, setSelectedSubCategory, setSelectedCategory } from './mainredux/ProductsAction'
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants';
 import { handleCart } from './helpers/mainComponent.cartList'
 
@@ -15,7 +15,7 @@ const MainComponent = () => {
     const dispatch = useDispatch()
 
 	const helperHandleCart = (product, quantityOperator) => {
-		handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts)
+		handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
 	}
 
   return (

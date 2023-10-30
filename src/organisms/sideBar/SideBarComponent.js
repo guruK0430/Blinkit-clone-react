@@ -25,7 +25,7 @@ const SideBarComponent = () => {
     return (
         <div className='sidebar-container'>
             {selectedCategory?.subCategories?.map((item, index) => 
-            <div className={item.id === activeSubCategory ? 'subcatagory-items active' : 'subcatagory-items'} onClick={() => helperHandleSubCategory(item, setActiveSubCategory)} key={index}>
+            <div className={item.id === activeSubCategory ? 'subcatagory-items active' : 'subcatagory-items'} onClick={() => helperHandleSubCategory(item)} key={index}>
                 <div className='subcatagory-image-container'>
                     <img className='subcatagory-image' src={item?.subCategoryImage} alt={"image"}/>
                 </div>

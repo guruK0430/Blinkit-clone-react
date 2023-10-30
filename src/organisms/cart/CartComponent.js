@@ -3,24 +3,25 @@ import './CartComponent.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from './cartredux/CartAction'
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants'
+import { handleCartQuantity } from './helpers/cartComponent.cartQuantity'
+import { handleCart } from '../main/helpers/mainComponent.cartList'
+import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../main/mainredux/ProductsAction'
 
 const CartComponent = () => {
 
   const [cartTotalAMount, setCartTotalAMount] = useState(0)
 
-    const { cartProducts }  = useSelector((state) => ({
+    const { allProducts, cartProducts }  = useSelector((state) => ({
 		cartProducts : state.cartReducer,
+    allProducts : state.productsReducer.allProducts,
 	}));  
 
   const dispatch = useDispatch()
 
-  const handleCartQuantity = (product, quantityOperator) => {
-    if(quantityOperator === QUANTITY_DECREASE){
-			dispatch(addToCart({...product, qty : product.qty - 1}))
-		}
-		else if(quantityOperator === QUANTITY_INCREASE){
-			dispatch(addToCart({...product, qty : product.qty + 1}))
-		}
+  const helperHandleCartQuantity = (product, quantityOperator) => {
+    console.log(product, quantityOperator, allProducts)
+    //handleCartQuantity(product, quantityOperator, dispatch, addToCart, handleCart, setSelectedSubCategory, setAllProducts, allProducts, setSelectedCategory)
+    handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
   }
 
   useEffect(() => {
@@ -44,9 +45,9 @@ const CartComponent = () => {
               </div>
             </div>
             <div className='quantity-container'>
-              <button className="quantity-btn" onClick={() => handleCartQuantity(item, QUANTITY_DECREASE)} >-</button>
+              <button className="quantity-btn" onClick={() => helperHandleCartQuantity(item, QUANTITY_DECREASE)} >-</button>
               <p>{item?.qty}</p>
-              <button className="quantity-btn" onClick={() => handleCartQuantity(item, QUANTITY_INCREASE)} >+</button>
+              <button className="quantity-btn" onClick={() => helperHandleCartQuantity(item, QUANTITY_INCREASE)} >+</button>
             </div>
           </div>
         )}

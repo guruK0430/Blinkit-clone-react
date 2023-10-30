@@ -1,7 +1,8 @@
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from '../Constants';
 
 const handleCart = (...props) => {
-    const [ product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts ] = props
+    console.log(props)
+    const [ product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory ] = props
 
     const updateProductQuantity = allProducts.map((category) => {
         const categoryProducts = category.subCategories.map((subcatagory) => {	
@@ -16,6 +17,9 @@ const handleCart = (...props) => {
             }
             return {...subcatagory, products: subCategoryProducts}
         })
+        if(category.id === product.categoryId){
+            dispatch(setSelectedCategory({ ...category, subCategories: categoryProducts}))
+        }
         return { ...category, subCategories: categoryProducts}
     })
     dispatch(setAllProducts(updateProductQuantity))

@@ -15,7 +15,7 @@ const HeaderComponent = () => {
 
   	const dispatch = useDispatch();
 
-	  const { cartProducts, allProducts }  = useSelector((state) => ({
+	const { cartProducts, allProducts }  = useSelector((state) => ({
 		cartProducts : state.cartReducer,
 		allProducts : state.productsReducer.allProducts,
 	}));  
