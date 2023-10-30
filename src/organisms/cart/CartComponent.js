@@ -29,22 +29,25 @@ const CartComponent = () => {
 
   return (
     <div className='cart-section'>
-      <strong className=''>Place Order</strong>
-      <p>Delivery in 10 minutes</p>
-      <p>6 items</p>
-        {cartProducts.map((item, index) =>
-          <CartProduct 
-            item={item} 
-            index={index} 
-            helperHandleCart={helperHandleCart} 
-            QUANTITY_DECREASE={QUANTITY_DECREASE} 
-            QUANTITY_INCREASE = {QUANTITY_INCREASE} 
-          />
-        )}
+      <div className='cart-scroll-section'>
+        <strong className='order-title'>Place Order</strong>
+        <p className='deliver-title'>Delivery in 10 minutes</p>
+        <p className='cart-count'>{cartProducts.length} items</p>
+          {cartProducts.map((item, index) =>
+            <CartProduct 
+              item={item} 
+              index={index} 
+              helperHandleCart={helperHandleCart} 
+              QUANTITY_DECREASE={QUANTITY_DECREASE} 
+              QUANTITY_INCREASE = {QUANTITY_INCREASE} 
+            />
+          )}
+      </div>
       <div className='cart-total-container'>
         <strong>Grand Total</strong>
-        <p>₹{cartTotalAMount}</p>
+        <p><strong>₹{cartTotalAMount}</strong></p>
       </div>
+      <div className='cart-count-price'>{cartProducts.length} items, {cartTotalAMount}</div>
     </div>
   )
 }
