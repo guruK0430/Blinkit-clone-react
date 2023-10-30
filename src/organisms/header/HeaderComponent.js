@@ -1,9 +1,9 @@
 import React, { useState, } from 'react'
-import './HeaderComponent.css'
+import './headerComponent.css'
 import Logo from '../../atoms/logo/index'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { setAllProducts, setSelectedCategory, setSelectedSubCategory } from '../main/mainredux/ProductsAction'
+import { setAllProducts, setSelectedCategory, setSelectedSubCategory } from '../main/mainredux/productsAction'
 import productsData from '../../data/productsData.json'
 import { Link } from 'react-router-dom';
 import { handleCategory } from './helpers/headerComponent.productCategory';
@@ -27,13 +27,13 @@ const HeaderComponent = () => {
 			count += items.qty 
 		})
 		setCartCount(count)
-	}, [cartProducts])
+	}, [JSON.stringify(cartProducts)])
 
 
 	// dispatch all Blink products from Json file (or) Endpoints
 	useEffect(() => {
 		dispatch(setAllProducts(productsData))
-	}, [productsData])
+	}, [JSON.stringify(productsData)])
 
 	const helperHandleCategory = (productCatagory) => {
 		handleCategory(productCatagory, dispatch, setSelectedCategory, setSelectedSubCategory)
@@ -42,12 +42,12 @@ const HeaderComponent = () => {
 	useEffect(() => {
 		const totalCartPrice = cartProducts.reduce(((totalPrice, item) => totalPrice + item.price * item.qty), 0)
 		setCartTotalAMount(totalCartPrice)
-	  }, [cartProducts])
+	  }, [JSON.stringify(cartProducts)])
 
 	return (
 		<div className='header-container'>
 			<div className='header-section-1'>
-				<img src={Logo} alt='logo' className='logo' />
+				<Link to='/'><img src={Logo} alt='logo' className='logo' /></Link>
 				<span className='location-constainer'>
 					<strong className='delivery-time-text'>Dleivery in 11 minutes</strong>
 					<p className='location-text'>Bengaluru, Karnataka, India</p>

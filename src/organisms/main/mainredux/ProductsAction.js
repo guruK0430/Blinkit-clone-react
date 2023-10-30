@@ -1,4 +1,4 @@
-import { SET_ALL_PRODUCTS, SET_SELECTED_CATEGORY, SET_SELECTED_SUBCATEGORY} from './ProductsType';
+import { SET_ALL_PRODUCTS, SET_SELECTED_CATEGORY, SET_SELECTED_SUBCATEGORY} from './productsType';
 
 const setAllProducts = (products) => {
     return {

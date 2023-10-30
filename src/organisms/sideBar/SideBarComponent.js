@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import './SideBarComponent.css'
+import './sideBarComponent.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedSubCategory, setSelectedCategory } from '../main/mainredux/ProductsAction'
+import { setSelectedSubCategory, setSelectedCategory } from '../main/mainredux/productsAction'
 import { handleSubCategory } from './helpers/sideBarComponent.subCategories'
 
 const SideBarComponent = () => {
     const { allProducts, selectedCategory }  = useSelector((state) => state.productsReducer);
-    //const [subCategoryProducts, setSubCategoryProducts] = useState([])
     const [activeSubCategory, setActiveSubCategory] = useState(1)
 
     const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const SideBarComponent = () => {
             dispatch(setSelectedCategory(allProducts[0]))
             dispatch(setSelectedSubCategory(allProducts[0].subCategories[0]))
         }
-    }, [allProducts])
+    }, [JSON.stringify(allProducts)])
 
     const helperHandleSubCategory = (productSubCategory) => {
         handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory)

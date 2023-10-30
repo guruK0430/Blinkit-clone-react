@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import './CartComponent.css'
+import './cartComponent.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { addToCart } from './cartredux/CartAction'
+import { addToCart } from './cartredux/cartAction'
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants'
-import { handleCartQuantity } from './helpers/cartComponent.cartQuantity'
 import { handleCart } from '../main/helpers/mainComponent.cartList'
-import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../main/mainredux/ProductsAction'
+import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../main/mainredux/productsAction'
+import CartProduct from '../../molecules/cartProduct/index'
 
 const CartComponent = () => {
 
@@ -18,16 +18,14 @@ const CartComponent = () => {
 
   const dispatch = useDispatch()
 
-  const helperHandleCartQuantity = (product, quantityOperator) => {
-    console.log(product, quantityOperator, allProducts)
-    //handleCartQuantity(product, quantityOperator, dispatch, addToCart, handleCart, setSelectedSubCategory, setAllProducts, allProducts, setSelectedCategory)
+  const helperHandleCart = (product, quantityOperator) => {
     handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
   }
 
   useEffect(() => {
     const totalCartPrice = cartProducts.reduce(((totalPrice, item) => totalPrice + item.price * item.qty), 0)
     setCartTotalAMount(totalCartPrice)
-  }, [cartProducts])
+  }, [JSON.stringify(cartProducts)])
 
   return (
     <div className='cart-section'>
@@ -35,21 +33,13 @@ const CartComponent = () => {
       <p>Delivery in 10 minutes</p>
       <p>6 items</p>
         {cartProducts.map((item, index) =>
-          <div className='cart-product' key={index}>
-            <div class="cart-left-section">
-              <div className='cart-img-container'><img className='cart-img' src={item.image} /></div>
-              <div className='cart-product-details'>
-                <p className='cart-title'>{item.productName}</p>
-                <p className='cart-kilo'>{item.kg} kg</p>
-                <strong className='cart-price'>₹{item.price}</strong>
-              </div>
-            </div>
-            <div className='quantity-container'>
-              <button className="quantity-btn" onClick={() => helperHandleCartQuantity(item, QUANTITY_DECREASE)} >-</button>
-              <p>{item?.qty}</p>
-              <button className="quantity-btn" onClick={() => helperHandleCartQuantity(item, QUANTITY_INCREASE)} >+</button>
-            </div>
-          </div>
+          <CartProduct 
+            item={item} 
+            index={index} 
+            helperHandleCart={helperHandleCart} 
+            QUANTITY_DECREASE={QUANTITY_DECREASE} 
+            QUANTITY_INCREASE = {QUANTITY_INCREASE} 
+          />
         )}
       <div className='cart-total-container'>
         <strong>Grand Total</strong>

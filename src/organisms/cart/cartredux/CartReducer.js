@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_CART } from './CartType'
+import { ADD_PRODUCT_CART } from './cartType'
 
 const intialState = []
 
