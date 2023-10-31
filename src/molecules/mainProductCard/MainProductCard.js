@@ -3,14 +3,15 @@ import './mainProductCard.css'
 import CartQuantityButton from '../../atoms/cartQuantityButton'
 
 const MainProductCard = (props) => {
+  const { helperHandleCart, item, QUANTITY_DECREASE, QUANTITY_INCREASE } = props
   return (
-    <div className='product-container' key={props.index}>
-        <div className='product-image-container'><img className='product-image' src={props.item.image} /></div>
-            <p className='product-title'>{props.item?.productName}</p>
-			<p className='product-in-kilo'>{props.item?.kg} kg</p>
+    <div className='product-container'>
+        <div className='product-image-container'><img className='product-image' src={item.image} /></div>
+            <p className='product-title'>{item?.productName}</p>
+			<p className='product-in-kilo'>{item?.kg} kg</p>
 			<div className='price-quantity-container'>
-				<strong>₹{props.item?.price}</strong>
-                <CartQuantityButton helperHandleCart={props.helperHandleCart} item={props.item} QUANTITY_DECREASE={props.QUANTITY_DECREASE} QUANTITY_INCREASE = {props.QUANTITY_INCREASE} />
+				<strong>₹{item?.price}</strong>
+                <CartQuantityButton helperHandleCart={helperHandleCart} item={item} QUANTITY_DECREASE={QUANTITY_DECREASE} QUANTITY_INCREASE = {QUANTITY_INCREASE} />
 			</div>
     </div>
   )
