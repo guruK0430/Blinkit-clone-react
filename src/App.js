@@ -8,7 +8,6 @@ import HeaderComponent from './organisms/header/index'
 const App = () => {
   return (
     <div className='App'>
-      <HeaderComponent />
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/cart' element={<CartPage />}></Route>

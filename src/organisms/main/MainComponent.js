@@ -5,12 +5,11 @@ import { addToCart } from '../cart/cartredux/cartAction';
 import { setAllProducts, setSelectedSubCategory, setSelectedCategory } from './mainredux/productsAction'
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants';
 import { handleCart } from './helpers/mainComponent.cartList'
-import CartQuantityButton from '../../atoms/cartQuantityButton';
 import MainProductCard from '../../molecules/mainProductCard/index';
 import SortDropDown from '../../atoms/sortDropDown/index';
 
 const MainComponent = () => {
-    const { selectedSubCategory, cartProducts, allProducts }  = useSelector((state) => ({
+    const { selectedSubCategory, allProducts }  = useSelector((state) => ({
 		selectedSubCategory : state.productsReducer.selectedSubCategory,
 		cartProducts : state.cartReducer,
 		allProducts : state.productsReducer.allProducts,
