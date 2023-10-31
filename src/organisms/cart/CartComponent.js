@@ -25,7 +25,7 @@ const CartComponent = () => {
   useEffect(() => {
     const totalCartPrice = cartProducts.reduce(((totalPrice, item) => totalPrice + item.price * item.qty), 0)
     setCartTotalAMount(totalCartPrice)
-  }, [JSON.stringify(cartProducts)])
+  }, [cartProducts])
 
   return (
     <div className='cart-section'>

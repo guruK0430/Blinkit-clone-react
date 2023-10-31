@@ -27,13 +27,13 @@ const HeaderComponent = () => {
 			count += items.qty 
 		})
 		setCartCount(count)
-	}, [JSON.stringify(cartProducts)])
+	}, [cartProducts])
 
 
 	// dispatch all Blink products from Json file (or) Endpoints
 	useEffect(() => {
 		dispatch(setAllProducts(productsData))
-	}, [JSON.stringify(productsData)])
+	}, [productsData])
 
 	const helperHandleCategory = (productCatagory) => {
 		handleCategory(productCatagory, dispatch, setSelectedCategory, setSelectedSubCategory)
@@ -42,7 +42,7 @@ const HeaderComponent = () => {
 	useEffect(() => {
 		const totalCartPrice = cartProducts.reduce(((totalPrice, item) => totalPrice + item.price * item.qty), 0)
 		setCartTotalAMount(totalCartPrice)
-	  }, [JSON.stringify(cartProducts)])
+	  }, [cartProducts])
 
 	return (
 		<div className='header-container'>

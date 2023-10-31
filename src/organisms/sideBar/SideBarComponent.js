@@ -15,7 +15,7 @@ const SideBarComponent = () => {
             dispatch(setSelectedCategory(allProducts[0]))
             dispatch(setSelectedSubCategory(allProducts[0].subCategories[0]))
         }
-    }, [JSON.stringify(allProducts)])
+    }, [allProducts])
 
     const helperHandleSubCategory = (productSubCategory) => {
         handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory)
