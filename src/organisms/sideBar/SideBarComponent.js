@@ -17,6 +17,12 @@ const SideBarComponent = () => {
         }
     }, [allProducts])
 
+    useEffect(() => {
+       if(selectedCategory?.subCategories?.length > 0){
+        setActiveSubCategory(selectedCategory.subCategories[0].id)
+       }
+    },[selectedCategory.id])
+
     const helperHandleSubCategory = (productSubCategory) => {
         handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory)
     }

@@ -32,7 +32,9 @@ const HeaderComponent = () => {
 
 	// dispatch all Blink products from Json file (or) Endpoints
 	useEffect(() => {
-		dispatch(setAllProducts(productsData))
+		if(allProducts.length < 1){
+			dispatch(setAllProducts(productsData))
+		}
 	}, [productsData])
 
 	const helperHandleCategory = (productCatagory) => {
@@ -42,7 +44,7 @@ const HeaderComponent = () => {
 	useEffect(() => {
 		const totalCartPrice = cartProducts.reduce(((totalPrice, item) => totalPrice + item.price * item.qty), 0)
 		setCartTotalAMount(totalCartPrice)
-	  }, [cartProducts])
+	}, [cartProducts])
 
 	return (
 		<div className='header-container'>
@@ -57,7 +59,9 @@ const HeaderComponent = () => {
 				<Link to='/cart'><button className='cart-btn'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount}` : "" }`}</button></Link>
 			</div>
 			<div className='catagory-container'>
-				{allProducts.map((item) => <Link to='/' key={item.id}><button className='catagory' onClick = {() => helperHandleCategory(item)}>{item.categoryName}</button></Link>)}
+				{allProducts.map((item) => 
+				<Link to='/' key={item.id}><button className='catagory' onClick = {() => helperHandleCategory(item)}>{item.categoryName}</button></Link>
+				)}
 			</div>
 		</div>
 	)

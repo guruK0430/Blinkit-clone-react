@@ -17,7 +17,7 @@ const CartComponent = () => {
 	}));  
 
   const dispatch = useDispatch()
-
+  
   const helperHandleCart = (product, quantityOperator) => {
     handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
   }
@@ -47,7 +47,7 @@ const CartComponent = () => {
         <strong>Grand Total</strong>
         <p><strong>₹{cartTotalAMount}</strong></p>
       </div>
-      <div className='cart-count-price'>{cartProducts.length} items, {cartTotalAMount}</div>
+      <div className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount}</div>
     </div>
   )
 }

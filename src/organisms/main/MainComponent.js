@@ -14,7 +14,7 @@ const MainComponent = () => {
 		cartProducts : state.cartReducer,
 		allProducts : state.productsReducer.allProducts,
 	}));  
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
 	const helperHandleCart = (product, quantityOperator) => {
 		handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
