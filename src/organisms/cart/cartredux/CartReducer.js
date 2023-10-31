@@ -7,9 +7,7 @@ const cartReducer = (state = intialState, action) => {
         case ADD_PRODUCT_CART : {
             let existingProduct = false
             const updatedCart = state.map((cartItems) => {
-				console.log(cartItems, action.payLoad)
 				if(cartItems.id === action.payLoad.id && cartItems.subcategoryId === action.payLoad.subcategoryId && cartItems.categoryId === action.payLoad.categoryId){
-					console.log(cartItems, action.payLoad)
                     existingProduct = true
 					return action.payLoad
 				}

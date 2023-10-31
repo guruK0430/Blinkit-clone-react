@@ -3,7 +3,7 @@ import './mainComponent.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../cart/cartredux/cartAction';
 import { setAllProducts, setSelectedSubCategory, setSelectedCategory } from './mainredux/productsAction'
-import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants';
+import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './constants/mainComponent.productQuantity';
 import { handleCart } from './helpers/mainComponent.cartList'
 import MainProductCard from '../../molecules/mainProductCard/index';
 import SortDropDown from '../../atoms/sortDropDown/index';
@@ -28,13 +28,13 @@ const MainComponent = () => {
 		</div>
         <div className='products-section'>
         {selectedSubCategory?.products?.map((item, index) => 
-			<MainProductCard             
-			item={item} 
-            index={index} 
+			  <MainProductCard             
+			      item={item} 
             helperHandleCart={helperHandleCart} 
             QUANTITY_DECREASE={QUANTITY_DECREASE} 
             QUANTITY_INCREASE = {QUANTITY_INCREASE} 
-			/>
+            key={index}
+			  />
         )}
         </div>
     </div>

@@ -14,7 +14,6 @@ const CartQuantityButton = (props) => {
         </div>
         }
   </>
-
   )
 }
 

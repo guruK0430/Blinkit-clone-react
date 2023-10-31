@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './cartComponent.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from './cartredux/cartAction'
-import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './Constants'
+import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './constants/cartComponent.cartQuantity'
 import { handleCart } from '../main/helpers/mainComponent.cartList'
 import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../main/mainredux/productsAction'
 import CartProduct from '../../molecules/cartProduct/index'
@@ -36,7 +36,7 @@ const CartComponent = () => {
           {cartProducts.map((item, index) =>
             <CartProduct 
               item={item} 
-              index={index} 
+              key={index} 
               helperHandleCart={helperHandleCart} 
               QUANTITY_DECREASE={QUANTITY_DECREASE} 
               QUANTITY_INCREASE = {QUANTITY_INCREASE} 

@@ -1,4 +1,4 @@
-import { QUANTITY_DECREASE, QUANTITY_INCREASE } from '../Constants';
+import { QUANTITY_DECREASE, QUANTITY_INCREASE } from '../constants/mainComponent.productQuantity';
 
 const handleCart = (...props) => {
     const [ product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory ] = props
