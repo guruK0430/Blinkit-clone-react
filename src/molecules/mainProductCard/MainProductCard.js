@@ -20,4 +20,4 @@ const MainProductCard = (props) => {
   )
 }
 
-export default MainProductCard
+export default MainProductCard 
