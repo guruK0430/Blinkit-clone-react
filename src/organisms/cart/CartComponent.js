@@ -45,9 +45,9 @@ const CartComponent = () => {
       </div>
       <div className='cart-total-container'>
         <strong>Grand Total</strong>
-        <p><strong>₹{cartTotalAMount}</strong></p>
+        <p><strong>₹{cartTotalAMount.toLocaleString("en-US")}</strong></p>
       </div>
-      <div className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount}</div>
+      <div className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</div>
     </div>
   )
 }

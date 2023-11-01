@@ -5,9 +5,10 @@ import { setSelectedSubCategory, setSelectedCategory } from '../main/mainredux/p
 import { handleSubCategory } from './helpers/sideBarComponent.subCategories'
 
 const SideBarComponent = () => {
-    const { allProducts, selectedCategory }  = useSelector((state) => ({
+    const { allProducts, selectedCategory, selectedSubCategory }  = useSelector((state) => ({
         allProducts: state.productsReducer.allProducts,
-        selectedCategory : state.productsReducer.selectedCategory
+        selectedCategory : state.productsReducer.selectedCategory,
+        selectedSubCategory : state.productsReducer.selectedSubCategory
     }));
     const [activeSubCategory, setActiveSubCategory] = useState(1)
 
@@ -27,7 +28,7 @@ const SideBarComponent = () => {
     },[selectedCategory.id])
 
     const helperHandleSubCategory = (productSubCategory) => {
-        handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory)
+        handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory, selectedSubCategory)
     }
 
     return (

@@ -20,13 +20,10 @@ const HeaderComponent = () => {
 		cartProducts : state.cartReducer,
 		allProducts : state.productsReducer.allProducts,
 	}));  
-	console.log(CartIcon)
 
 	useEffect(() => {
-		console.log(cartProducts,"cart")
 		let count  = 0
 		cartProducts?.forEach((items) => {
-			console.log(items.qty)
 			count += items.qty 
 		})
 		setCartCount(count)
@@ -35,6 +32,7 @@ const HeaderComponent = () => {
 
 	// dispatch all Blink products from Json file (or) Endpoints
 	useEffect(() => {
+		console.log("you")
 		if(allProducts.length < 1){
 			dispatch(setAllProducts(productsData))
 		}
@@ -62,7 +60,7 @@ const HeaderComponent = () => {
 				<Link to='/cart'>
 					<button className='cart-btn'>
 						<CartIcon />
-						<div className='cart-count-text'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount}` : "" }`}</div>
+						<div className='cart-count-text'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount.toLocaleString("en-US")}` : "" }`}</div>
 					</button>
 				</Link>
 			</div>

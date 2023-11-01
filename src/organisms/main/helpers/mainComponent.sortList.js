@@ -1,8 +1,6 @@
 const handleProductSort = (...props) =>{
 
-    const [ activeOption, selectedSubCategory, dispatch, setSelectedSubCategory, allProducts, selectedCategory, setAllProducts ] = props
-
-    console.log(allProducts, selectedSubCategory, selectedCategory)
+    const [ activeOption, selectedSubCategory, dispatch, setSelectedSubCategory, allProducts, selectedCategory, setAllProducts, REVELANCE, FROM_A_TO_Z, PRICE_HIGH_TO_LOW, PRICE_LOW_TO_HIGH ] = props
 
     const updateProductQuantity = allProducts.map((category) => {
         const categoryProducts = category.subCategories.map((subcatagory) => {	
@@ -11,10 +9,11 @@ const handleProductSort = (...props) =>{
                 let mainProductsList = subcatagory?.products?.length > 0 ? [ ...subcatagory?.products ] : []
 
                 productListAscending = mainProductsList?.sort((product1, product2) =>{
-                    if(activeOption === 'Relevance'){
+                    if(activeOption === REVELANCE){
+                        console.log("called")
                         return product1.id - product2.id
                     }
-                    else if(activeOption === "Form A to Z"){
+                    else if(activeOption === FROM_A_TO_Z){
                     if(product1.productName < product2.productName){
                         return -1
                     }
@@ -23,10 +22,10 @@ const handleProductSort = (...props) =>{
                     }
                     return 0
                     }
-                    else if(activeOption === "price(high to low)"){
+                    else if(activeOption === PRICE_HIGH_TO_LOW){
                     return product2.price - product1.price
                     }
-                    else if(activeOption === "price(low to high)"){
+                    else if(activeOption === PRICE_LOW_TO_HIGH){
                     return product1.price - product2.price
                     }
                 })
@@ -38,7 +37,6 @@ const handleProductSort = (...props) =>{
         return { ...category, subCategories: categoryProducts}
     })
     dispatch(setAllProducts(updateProductQuantity))
-    console.log(updateProductQuantity)
     }
 
 

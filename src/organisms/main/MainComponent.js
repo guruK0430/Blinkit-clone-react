@@ -8,6 +8,7 @@ import { handleCart } from './helpers/mainComponent.cartList'
 import MainProductCard from '../../molecules/mainProductCard/index';
 import SortDropDown from '../../atoms/sortDropDown/index';
 import handleProductSort from './helpers/mainComponent.sortList';
+import { REVELANCE, FROM_A_TO_Z, PRICE_HIGH_TO_LOW, PRICE_LOW_TO_HIGH } from './constants/mainComponent.productSort'
 
 const MainComponent = () => {
     const { selectedSubCategory, allProducts, selectedCategory }  = useSelector((state) => ({
@@ -17,7 +18,7 @@ const MainComponent = () => {
 	}));  
   const dispatch = useDispatch()
 
-  const[activeSortOption, setActiveSortOption] = useState('Relevance')
+  const[activeSortOption, setActiveSortOption] = useState(REVELANCE)
 
 	const helperHandleCart = (product, quantityOperator) => {
 		handleCart(product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory)
@@ -25,7 +26,7 @@ const MainComponent = () => {
 
   const helperHandleProductSort = (activeOption) =>{
     setActiveSortOption(activeOption)
-    handleProductSort(activeOption, selectedSubCategory, dispatch, setSelectedSubCategory, allProducts, selectedCategory, setAllProducts)
+    handleProductSort(activeOption, selectedSubCategory, dispatch, setSelectedSubCategory, allProducts, selectedCategory, setAllProducts, REVELANCE, FROM_A_TO_Z, PRICE_HIGH_TO_LOW, PRICE_LOW_TO_HIGH)
   }
 
   useEffect(() => {
@@ -34,12 +35,13 @@ const MainComponent = () => {
     }
   }, [selectedSubCategory.id, selectedCategory.id])
 
+
   return (
     <div className='main-container'>
         <div className='sorting-section'>
 			<strong>Buy Products Online</strong>
 			{
-        <SortDropDown handleProductSort={helperHandleProductSort}/>
+        <SortDropDown handleProductSort={helperHandleProductSort} REVELANCE = {REVELANCE} FROM_A_TO_Z={FROM_A_TO_Z} PRICE_HIGH_TO_LOW= {PRICE_HIGH_TO_LOW} PRICE_LOW_TO_HIGH={PRICE_LOW_TO_HIGH} />
         }
 		</div>
         <div className='products-section'>
