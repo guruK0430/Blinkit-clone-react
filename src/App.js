@@ -3,7 +3,6 @@ import './App'
 import { Route, Routes } from "react-router-dom"
 import HomePage from './pages/home/index'
 import CartPage from './pages/cart/index'
-import HeaderComponent from './organisms/header/index'
 
 const App = () => {
   return (

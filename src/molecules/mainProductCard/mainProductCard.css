@@ -3,6 +3,7 @@
     width: 180px;
     background-color: white;
     border-radius: 10px;
+    position: relative;
 }
 
 .product-image-container{
@@ -35,4 +36,17 @@
     font-size: small;
     opacity: 0.5;
     margin: 0;
+}
+
+.discount-Background {
+    position: absolute;
+    left: 5%;
+}
+
+.discount-value {
+    position: absolute;
+    left: 6%;
+    font-size:x-small;
+    font-weight:800;
+    color: white;
 }

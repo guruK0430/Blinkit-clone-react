@@ -8,7 +8,7 @@ const CartProduct = (props) => {
     <div className='cart-product'>
         <div className="cart-left-section">
             <div className='cart-img-container'>
-                <img className='cart-img' src={item.image} />
+                <img className='cart-img' src={item.image} alt={"img"}/>
             </div>
             <div className='cart-product-details'>
                 <p className='cart-title'>{item.productName}</p>

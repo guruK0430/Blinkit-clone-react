@@ -1,6 +1,7 @@
 import React, { useState, } from 'react'
 import './headerComponent.css'
 import Logo from '../../atoms/logo/index'
+import CartIcon from '../../atoms/cartIcon/CartIcon'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { setAllProducts, setSelectedCategory, setSelectedSubCategory } from '../main/mainredux/productsAction'
@@ -19,8 +20,10 @@ const HeaderComponent = () => {
 		cartProducts : state.cartReducer,
 		allProducts : state.productsReducer.allProducts,
 	}));  
+	console.log(CartIcon)
 
 	useEffect(() => {
+		console.log(cartProducts,"cart")
 		let count  = 0
 		cartProducts?.forEach((items) => {
 			console.log(items.qty)
@@ -49,14 +52,19 @@ const HeaderComponent = () => {
 	return (
 		<div className='header-container'>
 			<div className='header-section-1'>
-				<Link to='/'><img src={Logo} alt='logo' className='logo' /></Link>
+				<Link to='/'><img src={Logo} className='logo' /></Link>
 				<span className='location-constainer'>
 					<strong className='delivery-time-text'>Dleivery in 11 minutes</strong>
 					<p className='location-text'>Bengaluru, Karnataka, India</p>
 				</span>
 				<input className='header-search' type='text' placeholder='Search'/>
 				<button className='login-btn'>Login</button>
-				<Link to='/cart'><button className='cart-btn'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount}` : "" }`}</button></Link>
+				<Link to='/cart'>
+					<button className='cart-btn'>
+						<CartIcon />
+						<div className='cart-count-text'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount}` : "" }`}</div>
+					</button>
+				</Link>
 			</div>
 			<div className='catagory-container'>
 				{allProducts.map((item) => 
