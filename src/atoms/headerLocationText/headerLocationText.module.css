@@ -1,0 +1,10 @@
+.deliveryTimeText {
+    padding-top: 40px;
+    font-size: large;
+    font-weight: 800;
+}
+
+.locationText {
+    margin: 5px;
+    font-size: small;
+}

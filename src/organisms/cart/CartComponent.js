@@ -6,6 +6,8 @@ import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './constants/cartComponent.
 import { handleCart } from '../main/helpers/mainComponent.cartList'
 import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../main/mainredux/productsAction'
 import CartProduct from '../../molecules/cartProduct/index'
+import HorizontalContainer from '../../atoms/horizontalContainer'
+import Text from '../../atoms/text/index'
 
 const CartComponent = () => {
 
@@ -30,9 +32,9 @@ const CartComponent = () => {
   return (
     <div className='cart-section'>
       <div className='cart-scroll-section'>
-        <strong className='order-title'>Place Order</strong>
-        <p className='deliver-title'>Delivery in 10 minutes</p>
-        <p className='cart-count'>{cartProducts.length} items</p>
+        <Text className='order-title'>Place Order</Text>
+        <Text className='deliver-title'>Delivery in 10 minutes</Text>
+        <Text className='cart-count'>{cartProducts.length} items</Text>
           {cartProducts.map((item, index) =>
             <CartProduct 
               item={item} 
@@ -43,11 +45,11 @@ const CartComponent = () => {
             />
           )}
       </div>
-      <div className='cart-total-container'>
+      <HorizontalContainer className='cart-total-container'>
         <strong>Grand Total</strong>
-        <p><strong>₹{cartTotalAMount.toLocaleString("en-US")}</strong></p>
-      </div>
-      <div className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</div>
+        <Text><strong>₹{cartTotalAMount.toLocaleString("en-US")}</strong></Text>
+      </HorizontalContainer>
+      <Text className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</Text>
     </div>
   )
 }

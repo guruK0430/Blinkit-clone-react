@@ -8,17 +8,14 @@
 .sorting-section {
     padding-left: 15px;
     height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: white;
 }
 
 .products-section {
     padding: 10px;
-    display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    justify-content: start !important;
+    align-items: start !important;
     gap: 10px;
 }
 

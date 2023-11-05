@@ -1,5 +1,5 @@
 import React, { useState, } from 'react'
-import './headerComponent.css'
+import styles from './headerComponent.module.css'
 import Logo from '../../atoms/logo/index'
 import CartIcon from '../../atoms/cartIcon/CartIcon'
 import { useEffect } from 'react';
@@ -8,6 +8,12 @@ import { setAllProducts, setSelectedCategory, setSelectedSubCategory } from '../
 import productsData from '../../data/productsData.json'
 import { Link } from 'react-router-dom';
 import { handleCategory } from './helpers/headerComponent.productCategory';
+import VerticalContainer from '../../atoms/verticalContainer/index';
+import HorizontalContainer from '../../atoms/horizontalContainer/index';
+import Button from '../../atoms/button/index';
+import HeaderLocationText from '../../atoms/headerLocationText/index';
+import Text from '../../atoms/text/index';
+import Input from '../../atoms/input/index';
 
 const HeaderComponent = () => {
 
@@ -32,7 +38,6 @@ const HeaderComponent = () => {
 
 	// dispatch all Blink products from Json file (or) Endpoints
 	useEffect(() => {
-		console.log("you")
 		if(allProducts.length < 1){
 			dispatch(setAllProducts(productsData))
 		}
@@ -48,28 +53,27 @@ const HeaderComponent = () => {
 	}, [cartProducts])
 
 	return (
-		<div className='header-container'>
-			<div className='header-section-1'>
-				<Link to='/'><img src={Logo} className='logo' /></Link>
-				<span className='location-constainer'>
-					<strong className='delivery-time-text'>Dleivery in 11 minutes</strong>
-					<p className='location-text'>Bengaluru, Karnataka, India</p>
-				</span>
-				<input className='header-search' type='text' placeholder='Search'/>
-				<button className='login-btn'>Login</button>
-				<Link to='/cart'>
-					<button className='cart-btn'>
-						<CartIcon />
-						<div className='cart-count-text'>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount.toLocaleString("en-US")}` : "" }`}</div>
-					</button>
+		<VerticalContainer className={styles.headerContainer} >
+			<HorizontalContainer className={styles.headerSection}>
+				<Link to='/'>
+					<Logo />
 				</Link>
-			</div>
-			<div className='catagory-container'>
+				<HeaderLocationText />
+				<Input className={styles.headerSearch} type='text' placeholder='Search'/>
+				<Button className={styles.loginBtn}>Login</Button>
+				<Link to='/cart'>
+					<Button className={styles.cartBtn}>
+						<CartIcon />
+						<Text className={styles.cartCountText}>{cartCount === 0 ? "My Cart" : `${cartCount} items ${cartTotalAMount !== 0 ? `₹${cartTotalAMount.toLocaleString("en-US")}` : "" }`}</Text>
+					</Button>
+				</Link>
+			</HorizontalContainer>
+			<HorizontalContainer className={styles.catagoryContainer}>
 				{allProducts.map((item) => 
-				<Link to='/' key={item.id}><button className='catagory' onClick = {() => helperHandleCategory(item)}>{item.categoryName}</button></Link>
+				<Link to='/' key={item.id}><Button className={styles.catagory} onClick = {() => helperHandleCategory(item)}>{item.categoryName}</Button></Link>
 				)}
-			</div>
-		</div>
+			</HorizontalContainer>
+		</VerticalContainer>
 	)
 }
 

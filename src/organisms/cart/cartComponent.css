@@ -15,16 +15,14 @@
 }
 
 .cart-total-container {
-    display: flex;
-    justify-content: space-between;
     padding: 0 20px;
-    align-items: center;
 }
 
 .order-title {
     font-size: larger;
     opacity: 0.7;
     padding-left: 30px;
+    font-weight: bold;
 }
 
 .deliver-title{
@@ -36,13 +34,14 @@
 .cart-count {
     font-size: small;
     opacity: 0.5;
-    padding-left: 30px;
+    padding-left: 30px !important;
 }
 
 .cart-count-price { 
     background-color: green;
-    padding: 5px 30px;
+    padding: 5px 30px !important;
     font-weight: bold;
     color: white;
     border-radius: 5px;
+    margin-top: 10px;
 }

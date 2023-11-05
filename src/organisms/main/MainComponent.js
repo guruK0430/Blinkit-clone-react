@@ -9,6 +9,7 @@ import MainProductCard from '../../molecules/mainProductCard/index';
 import SortDropDown from '../../atoms/sortDropDown/index';
 import handleProductSort from './helpers/mainComponent.sortList';
 import { REVELANCE, FROM_A_TO_Z, PRICE_HIGH_TO_LOW, PRICE_LOW_TO_HIGH } from './constants/mainComponent.productSort'
+import HorizontalContainer from '../../atoms/horizontalContainer';
 
 const MainComponent = () => {
     const { selectedSubCategory, allProducts, selectedCategory }  = useSelector((state) => ({
@@ -37,25 +38,25 @@ const MainComponent = () => {
 
 
   return (
-    <div className='main-container'>
-        <div className='sorting-section'>
-			<strong>Buy Products Online</strong>
-			{
-        <SortDropDown handleProductSort={helperHandleProductSort} REVELANCE = {REVELANCE} FROM_A_TO_Z={FROM_A_TO_Z} PRICE_HIGH_TO_LOW= {PRICE_HIGH_TO_LOW} PRICE_LOW_TO_HIGH={PRICE_LOW_TO_HIGH} />
-        }
-		</div>
-        <div className='products-section'>
-        {selectedSubCategory?.products?.map((item) => 
-			  <MainProductCard             
-			      item={item} 
-            helperHandleCart={helperHandleCart} 
-            QUANTITY_DECREASE={QUANTITY_DECREASE} 
-            QUANTITY_INCREASE = {QUANTITY_INCREASE} 
-            key={item.id}
-			  />
-        )}
-        </div>
-    </div>
+      <div className='main-container'>
+        <HorizontalContainer className='sorting-section'>
+          <strong>Buy Products Online</strong>
+          {
+            <SortDropDown handleProductSort={helperHandleProductSort} REVELANCE = {REVELANCE} FROM_A_TO_Z={FROM_A_TO_Z} PRICE_HIGH_TO_LOW= {PRICE_HIGH_TO_LOW} PRICE_LOW_TO_HIGH={PRICE_LOW_TO_HIGH} />
+            }
+        </HorizontalContainer>
+        <HorizontalContainer className='products-section'>
+          {selectedSubCategory?.products?.map((item) => 
+          <MainProductCard             
+              item={item} 
+              helperHandleCart={helperHandleCart} 
+              QUANTITY_DECREASE={QUANTITY_DECREASE} 
+              QUANTITY_INCREASE = {QUANTITY_INCREASE} 
+              key={item.id}
+          />
+          )}
+        </HorizontalContainer>
+      </div>
   )
 }
 

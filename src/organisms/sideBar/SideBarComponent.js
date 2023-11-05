@@ -3,6 +3,9 @@ import './sideBarComponent.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedSubCategory, setSelectedCategory } from '../main/mainredux/productsAction'
 import { handleSubCategory } from './helpers/sideBarComponent.subCategories'
+import VerticalContainer from '../../atoms/verticalContainer/index';
+import HorizontalContainer from '../../atoms/horizontalContainer/index';
+import Text from '../../atoms/text/index';
 
 const SideBarComponent = () => {
     const { allProducts, selectedCategory, selectedSubCategory }  = useSelector((state) => ({
@@ -28,20 +31,21 @@ const SideBarComponent = () => {
     },[selectedCategory.id])
 
     const helperHandleSubCategory = (productSubCategory) => {
+        console.log(productSubCategory,"called")
         handleSubCategory(productSubCategory, dispatch, setSelectedSubCategory, setActiveSubCategory, selectedSubCategory)
     }
 
     return (
-        <div className='sidebar-container'>
+        <VerticalContainer className='sidebar-container'>
             {selectedCategory?.subCategories?.map((item, index) => 
-            <div className={item.id === activeSubCategory ? 'subcatagory-items active' : 'subcatagory-items'} onClick={() => helperHandleSubCategory(item)} key={index}>
+            <HorizontalContainer className={item.id === activeSubCategory ? 'subcatagory-items active' : 'subcatagory-items'} onClick={() => helperHandleSubCategory(item)} key={index}>
                 <div className='subcatagory-image-container'>
                     <img className='subcatagory-image' src={item?.subCategoryImage}/>
                 </div>
-                <p>{item?.subCategoryName}</p>
+                <Text>{item?.subCategoryName}</Text>
                 
-            </div>)}
-        </div>
+            </HorizontalContainer>)}
+        </VerticalContainer>
     )
 }
 

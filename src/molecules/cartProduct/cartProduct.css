@@ -1,9 +1,6 @@
 .cart-product {
     height: 100px;
     padding:30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .cart-img-container {
@@ -17,13 +14,16 @@
 }
 
 .cart-left-section {
-    display: flex;
     height: 100%;
 }
 
 .cart-title, .cart-kilo, .cart-price {
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 0 !important;
+}
+
+.cart-price{
+    font-weight: bold;
 }
 
 .cart-kilo {

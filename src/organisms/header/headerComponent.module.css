@@ -1,0 +1,62 @@
+/* header top(logo, search) section */
+.headerContainer {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+}
+
+.headerSection {
+    border-bottom: 1px solid rgba(32, 32, 32, 0.1);
+    height: 86px;
+}
+
+.cartBtn { 
+    padding: 0 20px;
+    background-color: rgb(3, 143, 3);
+    color: #ffff;
+    margin-right: 20px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.cartCountText{
+    font-size: medium;
+    width: 100%;
+    padding-left: 5px !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.headerSearch {
+    width: 60%;
+    max-width: 700px;
+    height: 40px;
+}
+
+.loginBtn {
+    font-weight: 300 !important;
+    background-color: white;
+}
+
+/* header catagory section */
+
+.catagoryContainer {
+    border-bottom: 1px solid rgba(40, 40, 40, 0.1);
+    height : 48px;
+    box-shadow: 0px 1px 4px 0.1px rgb(226, 225, 225);
+    justify-content: center !important;
+    gap:  0px 50px;
+}
+
+.catagory {
+    font-weight: 300 !important;
+    opacity: 0.8;
+    font-size: 15px !important;
+    border: none;
+    background-color: white;
+}
