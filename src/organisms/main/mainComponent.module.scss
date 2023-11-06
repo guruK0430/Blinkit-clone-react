@@ -1,0 +1,23 @@
+.mainContainer {
+    padding-top: 135px;
+    margin-left: 405px;
+    height: 100vh;
+    background-color: #eeeeee;
+    padding-bottom: 18px;
+    overflow: scroll;
+}
+
+.sortingSection {
+    padding-left: 15px;
+    height: 45px;
+    background-color: white;
+}
+
+.productsSection {
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: start !important;
+    align-items: start !important;
+    gap: 10px;
+}
+

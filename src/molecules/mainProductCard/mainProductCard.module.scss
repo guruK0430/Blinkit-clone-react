@@ -1,0 +1,52 @@
+.productContainer {
+    height: 260px;
+    width: 180px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.productImageContainer{
+    width:100%;
+    height:140px;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.productTitle {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.priceQuantityContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px;
+    align-items: center;
+}
+
+.productInKilo {
+    font-size: small;
+    opacity: 0.5;
+    padding: 20px 15px;
+    font-size: small;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.discountBackground {
+    position: absolute;
+    left: 5%;
+}
+
+.discountValue {
+    position: absolute;
+    left: 6%;
+    font-size:x-small;
+    font-weight:800;
+    color: white;
+}

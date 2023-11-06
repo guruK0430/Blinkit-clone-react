@@ -1,0 +1,32 @@
+.cartProduct {
+    height: 100px;
+    padding:30px;
+}
+
+.cartImgContainer {
+    width: 80px;
+    border: 1px solid rgb(231, 231, 231);
+    margin-right: 20px;
+}
+
+.cartImg {
+    width: 100%;
+}
+
+.cartLeftSection {
+    height: 100%;
+}
+
+.cartTitle, .cartKilo, .cartPrice {
+    margin: 0;
+    padding: 10px 0 !important;
+}
+
+.cartPrice{
+    font-weight: bold;
+}
+
+.cartKilo {
+    font-size: small;
+    opacity: 0.5;
+}
