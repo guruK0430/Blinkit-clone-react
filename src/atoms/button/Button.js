@@ -5,7 +5,7 @@ import classNames from 'classnames'
 const Button = (props) => {
     const {className = "", children, ...rest} = props
   return (
-    <button className={classNames(className, styles.buttonC)} {...rest}>
+    <button className={classNames(className, styles.button)} {...rest}>
         {children}
     </button>
   )
