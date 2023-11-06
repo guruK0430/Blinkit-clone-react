@@ -2,6 +2,7 @@ import React from 'react'
 import SideBarComponent from '../../organisms/sideBar/index'
 import MainComponent from '../../organisms/main/index'
 import HeaderComponent from '../../organisms/header/index'
+import Footer from '../../organisms/footer/index'
 
 const HomePage = () => {
 
@@ -10,6 +11,7 @@ const HomePage = () => {
 			<HeaderComponent />
 			<SideBarComponent />
 			<MainComponent />
+			<Footer />
 		</div>
 	)
 }

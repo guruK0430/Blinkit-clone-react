@@ -8,6 +8,7 @@ import { setSelectedCategory, setSelectedSubCategory, setAllProducts } from '../
 import CartProduct from '../../molecules/cartProduct/index'
 import HorizontalContainer from '../../atoms/horizontalContainer'
 import Text from '../../atoms/text/index'
+import VerticalContainer from '../../atoms/verticalContainer'
 
 const CartComponent = () => {
 
@@ -30,7 +31,7 @@ const CartComponent = () => {
   }, [cartProducts])
 
   return (
-    <div className='cart-section'>
+    <VerticalContainer className='cart-section'>
       <div className='cart-scroll-section'>
         <Text className='order-title'>Place Order</Text>
         <Text className='deliver-title'>Delivery in 10 minutes</Text>
@@ -50,7 +51,7 @@ const CartComponent = () => {
         <Text><strong>₹{cartTotalAMount.toLocaleString("en-US")}</strong></Text>
       </HorizontalContainer>
       <Text className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</Text>
-    </div>
+    </VerticalContainer>
   )
 }
 
