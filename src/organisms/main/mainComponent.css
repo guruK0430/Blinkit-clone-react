@@ -4,6 +4,7 @@
     height: 100vh;
     background-color: #eeeeee;
     padding-bottom: 18px;
+    overflow: scroll;
 }
 
 .sorting-section {
