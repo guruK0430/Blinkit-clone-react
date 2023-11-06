@@ -1,4 +1,4 @@
-.add-to-cart {
+.addToCart {
     background-color: rgb(232, 247, 236);
     padding: 8px 20px;
     border : 1px solid green;
@@ -9,7 +9,7 @@
     height: 34px;
 }
 
-.quantity-container {
+.quantityContainer {
     display: flex;
     width: 68px;
     height: 32px;
@@ -21,6 +21,6 @@
     border-radius: 5px;
 }
 
-.quantity-btn {
+.quantityBtn {
     all: unset;
 }

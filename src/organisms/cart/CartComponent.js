@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './cartComponent.css'
+import styles from './cartComponent.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from './cartredux/cartAction'
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from './constants/cartComponent.cartQuantity'
@@ -31,11 +31,11 @@ const CartComponent = () => {
   }, [cartProducts])
 
   return (
-    <VerticalContainer className='cart-section'>
-      <div className='cart-scroll-section'>
-        <Text className='order-title'>Place Order</Text>
-        <Text className='deliver-title'>Delivery in 10 minutes</Text>
-        <Text className='cart-count'>{cartProducts.length} items</Text>
+    <VerticalContainer className={styles.cartSection}>
+      <div className={styles.cartScrollSection}>
+        <Text className={styles.orderTitle}>Place Order</Text>
+        <Text className={styles.deliverTitle}>Delivery in 10 minutes</Text>
+        <Text className={styles.cartCount}>{cartProducts.length} items</Text>
           {cartProducts.map((item, index) =>
             <CartProduct 
               item={item} 
@@ -46,11 +46,11 @@ const CartComponent = () => {
             />
           )}
       </div>
-      <HorizontalContainer className='cart-total-container'>
+      <HorizontalContainer className={styles.cartTotalContainer}>
         <strong>Grand Total</strong>
         <Text><strong>₹{cartTotalAMount.toLocaleString("en-US")}</strong></Text>
       </HorizontalContainer>
-      <Text className='cart-count-price'>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</Text>
+      <Text className={styles.cartCountPrice}>{cartProducts.length} items, ₹{cartTotalAMount.toLocaleString("en-US")}</Text>
     </VerticalContainer>
   )
 }

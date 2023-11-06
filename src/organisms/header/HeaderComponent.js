@@ -1,5 +1,5 @@
 import React, { useState, } from 'react'
-import styles from './headerComponent.module.css'
+import styles from './headerComponent.module.scss'
 import Logo from '../../atoms/logo/index'
 import CartIcon from '../../atoms/cartIcon/CartIcon'
 import { useEffect } from 'react';

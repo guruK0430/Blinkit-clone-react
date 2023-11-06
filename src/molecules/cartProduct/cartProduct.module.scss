@@ -1,32 +1,32 @@
-.cart-product {
+.cartProduct {
     height: 100px;
     padding:30px;
 }
 
-.cart-img-container {
+.cartImgContainer {
     width: 80px;
     border: 1px solid rgb(231, 231, 231);
     margin-right: 20px;
 }
 
-.cart-img {
+.cartImg {
     width: 100%;
 }
 
-.cart-left-section {
+.cartLeftSection {
     height: 100%;
 }
 
-.cart-title, .cart-kilo, .cart-price {
+.cartTitle, .cartKilo, .cartPrice {
     margin: 0;
     padding: 10px 0 !important;
 }
 
-.cart-price{
+.cartPrice{
     font-weight: bold;
 }
 
-.cart-kilo {
+.cartKilo {
     font-size: small;
     opacity: 0.5;
 }

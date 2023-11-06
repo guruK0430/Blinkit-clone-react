@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './sideBarComponent.css'
+import styles from './sideBarComponent.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedSubCategory, setSelectedCategory } from '../main/mainredux/productsAction'
 import { handleSubCategory } from './helpers/sideBarComponent.subCategories'
@@ -36,11 +36,11 @@ const SideBarComponent = () => {
     }
 
     return (
-        <VerticalContainer className='sidebar-container'>
+        <VerticalContainer className={styles.sidebarContainer}>
             {selectedCategory?.subCategories?.map((item, index) => 
-            <HorizontalContainer className={item.id === activeSubCategory ? 'subcatagory-items active' : 'subcatagory-items'} onClick={() => helperHandleSubCategory(item)} key={index}>
-                <div className='subcatagory-image-container'>
-                    <img className='subcatagory-image' src={item?.subCategoryImage}/>
+            <HorizontalContainer className={item.id === activeSubCategory ? `${styles.subcatagoryItems} ${styles.active}` : styles.subcatagoryItems} onClick={() => helperHandleSubCategory(item)} key={index}>
+                <div className={styles.subcatagoryImageContainer}>
+                    <img className={styles.subcatagoryImage} src={item?.subCategoryImage}/>
                 </div>
                 <Text>{item?.subCategoryName}</Text>
                 

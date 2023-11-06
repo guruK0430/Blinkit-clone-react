@@ -1,4 +1,5 @@
 import { QUANTITY_DECREASE, QUANTITY_INCREASE } from '../constants/mainComponent.productQuantity';
+import PropTypes from 'prop-types'
 
 const handleCart = (...props) => {
     const [ product, quantityOperator, dispatch, setSelectedSubCategory, setAllProducts, addToCart, allProducts, setSelectedCategory ] = props
@@ -29,6 +30,17 @@ const handleCart = (...props) => {
     else if (quantityOperator === QUANTITY_INCREASE){
         dispatch(addToCart({...product, qty : product.qty + 1}))
     }
+}
+
+handleCart.propTypes = {
+    product : PropTypes.object,
+    quantityOperator : PropTypes.string,
+    dispatch: PropTypes.func,
+    setSelectedSubCategory: PropTypes.func,
+    setAllProducts: PropTypes.func,
+    addToCart: PropTypes.func,
+    allProducts: PropTypes.array,
+    setSelectedCategory: PropTypes.func,
 }
 
 export {

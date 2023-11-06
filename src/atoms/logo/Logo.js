@@ -1,9 +1,9 @@
 import logo from './logo.svg'
-import styles from './logo.module.css'
+import styles from './logo.module.scss'
 
 const Logo = () =>{
     return (
-        <div className={styles.logo_container}>
+        <div className={styles.logoContainer}>
             <img src={logo} className={styles.logo} />
         </div>     
     )

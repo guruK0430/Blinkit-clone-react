@@ -1,9 +1,9 @@
 import cartIcon from './cartIcon.png'
-import './cartIcon.css'
+import styles from'./cartIcon.module.scss'
 
 const CartIcon = () =>{
     return (
-        <img className='cartIcon' src= {cartIcon} />
+        <img className={styles.cartIcon} src= {cartIcon} alt='img' />
     )
 }
 

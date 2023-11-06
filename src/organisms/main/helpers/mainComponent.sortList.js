@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const handleProductSort = (...props) =>{
 
     const [ activeOption, selectedSubCategory, dispatch, setSelectedSubCategory, allProducts, selectedCategory, setAllProducts, REVELANCE, FROM_A_TO_Z, PRICE_HIGH_TO_LOW, PRICE_LOW_TO_HIGH ] = props
@@ -10,7 +12,6 @@ const handleProductSort = (...props) =>{
 
                 productListAscending = mainProductsList?.sort((product1, product2) =>{
                     if(activeOption === REVELANCE){
-                        console.log("called")
                         return product1.id - product2.id
                     }
                     else if(activeOption === FROM_A_TO_Z){
@@ -37,7 +38,21 @@ const handleProductSort = (...props) =>{
         return { ...category, subCategories: categoryProducts}
     })
     dispatch(setAllProducts(updateProductQuantity))
-    }
+}
+
+handleProductSort.propTypes = {
+    activeOption : PropTypes.string,
+    selectedSubCategory: PropTypes.object,
+    dispatch: PropTypes.func,
+    setSelectedSubCategory: PropTypes.func,
+    allProducts: PropTypes.array,
+    selectedCategory: PropTypes.object,
+    setAllProducts: PropTypes.func,
+    REVELANCE : PropTypes.string,
+    FROM_A_TO_Z : PropTypes.string,
+    PRICE_HIGH_TO_LOW : PropTypes.string,
+    PRICE_LOW_TO_HIGH : PropTypes.string,
+}    
 
 
 export default handleProductSort

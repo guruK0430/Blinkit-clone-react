@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './mainComponent.css'
+import styles from './mainComponent.module.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../cart/cartredux/cartAction';
 import { setAllProducts, setSelectedSubCategory, setSelectedCategory } from './mainredux/productsAction'
@@ -38,14 +38,14 @@ const MainComponent = () => {
 
 
   return (
-      <div className='main-container'>
-        <HorizontalContainer className='sorting-section'>
+      <div className={styles.mainContainer}>
+        <HorizontalContainer className={styles.sortingSection}>
           <strong>Buy Products Online</strong>
           {
             <SortDropDown handleProductSort={helperHandleProductSort} REVELANCE = {REVELANCE} FROM_A_TO_Z={FROM_A_TO_Z} PRICE_HIGH_TO_LOW= {PRICE_HIGH_TO_LOW} PRICE_LOW_TO_HIGH={PRICE_LOW_TO_HIGH} />
             }
         </HorizontalContainer>
-        <HorizontalContainer className='products-section'>
+        <HorizontalContainer className={styles.productsSection}>
           {selectedSubCategory?.products?.map((item) => 
           <MainProductCard             
               item={item} 

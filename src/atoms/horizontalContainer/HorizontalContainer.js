@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './horizontalContainer.module.css'
+import styles from './horizontalContainer.module.scss'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 const HorizontalContainer = (props) => {
     const {className = "", children, ...rest} = props
@@ -9,6 +10,11 @@ const HorizontalContainer = (props) => {
         {children}
     </div>
   )
+}
+
+HorizontalContainer.propTypes = {
+  className : PropTypes.string,
+  children : PropTypes.node,
 }
 
 export default HorizontalContainer

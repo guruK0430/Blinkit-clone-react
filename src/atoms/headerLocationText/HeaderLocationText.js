@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './headerLocationText.module.css'
+import styles from './headerLocationText.module.scss'
 
 const HeaderLocationText = () => {
   return (
